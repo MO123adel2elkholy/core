@@ -195,10 +195,38 @@ def user_factory_fixture(db):
 @pytest.fixture
 def user_A(db, user_factory_fixture):
     return user_factory_fixture(username='user_A', password='password123')
+
 ```
+
+# What is the Factory Method Pattern
+The Factory Method Pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created.
+In the context of testing with Pytest, using fixtures as factory functions allows you to create different test data according to your test needs, similar to how the Factory Method Pattern allows for the creation of objects based on specific requirements.
+
+
+# What is a Factory
+A factory is a function or class that creates objects. In the context of testing with Pytest, a factory function is a fixture that returns a function capable of creating test data.
+
+# Factory Boy With Django and Pytest
+Factory Boy is a popular library for creating test data in Python. It provides a way to define factories for your models, allowing you to easily create instances of your models with predefined attributes
+
+# Example of Factory Boy
+```pythonpython
+import factory
+from myapp.models import MyModel
+class MyModelFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = MyModel
+
+    name = factory.Faker('name')
+    description = factory.Faker('text')
+```
+
+
 <!-- according to Design Patterns Factory Method  Pattern -->
 # Conclusion
 Using Pytest fixtures can help you write cleaner and more maintainable tests by separating setup code from test logic. They also promote reusability and consistency across your test suite. test will automatically look for fixtures with matching names and provide them to the test.
 test will automatically look for fixtures with matching names and provide them to the test.
+
+
 
 

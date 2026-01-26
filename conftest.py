@@ -1,9 +1,16 @@
+from tests.factories import UserFactory, ProductFactory, CategoryFactory
+from pytest_factoryboy import register
 import email
 from django.contrib.auth.models import User
 import pytest
 
 
+register(UserFactory)
+register(ProductFactory)
+register(CategoryFactory)
 # arrange Phase: Set up any necessary preconditions or inputs.
+
+
 @pytest.fixture
 def create_test_user(db):
     """
@@ -44,3 +51,6 @@ def user_A(db, user_factory_fixture):
 @pytest.fixture
 def user_is_staff_member(db, user_factory_fixture):
     return user_factory_fixture(username='user_B', password='password123', is_staff=True)
+
+
+# Register the UserFactory with pytest-factoryboy
