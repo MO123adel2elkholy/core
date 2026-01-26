@@ -221,6 +221,35 @@ class MyModelFactory(factory.django.DjangoModelFactory):
     description = factory.Faker('text')
 ```
 
+# what is pytest parametrized fixtures
+Pytest parametrized fixtures allow you to run a test function multiple times with different sets of parameters. This is useful for testing various scenarios without having to write separate test functions for each case.
+# Example of Parametrized Fixture
+```pythonpython
+
+import pytest
+@pytest.fixture(params=[
+    {'username': 'user1', 'is_staff': False},
+    {'username': 'admin', 'is_staff': True},
+])
+def user_parametrized_fixture(request, db):
+    params = request.param
+    user = User.objects.create_user(
+        username=params['username'],
+        password='password123'
+    )
+    user.is_staff = params['is_staff']
+    user.save()
+    return user
+@pytest.mark.django_db
+def test_user_parametrized(user_parametrized_fixture):
+    user = user_parametrized_fixture
+    if user.is_staff:
+        assert user.username == 'admin'
+    else:
+        assert user.username == 'user1'
+```
+
+
 
 <!-- according to Design Patterns Factory Method  Pattern -->
 # Conclusion
