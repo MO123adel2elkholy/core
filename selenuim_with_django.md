@@ -28,17 +28,18 @@ Before you begin, ensure you have the following installed:
     from selenium.webdriver.common.keys import Keys
     import time
     class MySeleniumTests(LiveServerTestCase):
+        # Set up the web driver
         @classmethod
         def setUpClass(cls):
             super().setUpClass()
             cls.driver = webdriver.Chrome()  # or webdriver.Firefox() for Firefox
-            cls.driver.implicitly_wait(10)
-
+            cls.driver.implicitly_wait(10) # Wait up to 10 seconds for elements to appear
+        # Tear down the web driver
         @classmethod
         def tearDownClass(cls):
             cls.driver.quit()
             super().tearDownClass()
-
+         # Example test case
         def test_example(self):
             self.driver.get(self.live_server_url)
             self.assertIn("Welcome", self.driver.title)
