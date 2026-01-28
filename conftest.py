@@ -3,6 +3,11 @@ from pytest_factoryboy import register
 import email
 from django.contrib.auth.models import User
 import pytest
+# tests.py
+from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
 
 register(UserFactory)
@@ -54,3 +59,14 @@ def user_is_staff_member(db, user_factory_fixture):
 
 
 # Register the UserFactory with pytest-factoryboy
+
+
+# arrange fixture for selenium driver Phase1
+@pytest.fixture(scope="class")
+def selenium_driver(request):
+    options = Options()
+    options.add_argument("--headless")  # تشغيل Chrome في وضع headless
+    driver = webdriver.Chrome(
+        ChromeDriverManager().install(), options=options)
+    yield driver
+    driver.quit()
