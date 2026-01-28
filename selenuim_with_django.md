@@ -66,10 +66,17 @@ Before you begin, ensure you have the following installed:
     options.headless = True
     cls.driver = webdriver.Chrome(options=options)
     ```
-- **Clean Up**: Always ensure that your web driver is properly closed after tests to avoid resource leaks.
+- **Clean Up**: Always ensure that your web driver is properly closed after tests to avoid 
+resource leaks.
+
+# taking screen shots for your application  
+you might want to take screen shots for your application you may want this for documenttion purpose 
+
 ## Conclusion
 By following this guide, you should be able to set up and run Selenium tests in your Django application. This will help you ensure that your web application functions correctly from the user's perspective, providing a better overall experience. Happy testing!
 
 ## Further Reading
 - [Selenium Documentation](https://www.selenium.dev/documentation/en/)
 - [Django Testing Framework](https://docs.djangoproject.com/en/stable/topics/testing/)
+
+
