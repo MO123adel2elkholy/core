@@ -1,7 +1,6 @@
 
 # testing User Factory from factories.py
 import pytest
-from tests.factories import UserFactory, ProductFactory
 from django.contrib.auth.models import User
 from core.app1 import models
 

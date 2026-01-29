@@ -1,11 +1,9 @@
-from tests.factories import UserFactory, ProductFactory, CategoryFactory
 from pytest_factoryboy import register
-import email
 from django.contrib.auth.models import User
+
+from tests.factories import CategoryFactory, ProductFactory, UserFactory
 import pytest
-# tests.py
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
