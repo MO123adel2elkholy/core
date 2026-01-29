@@ -5,6 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  schedule:
+    - cron: "1 * * * *"  # كل يوم الساعة 2 صباحًا UTC
 
 jobs:
   build:
@@ -27,14 +29,18 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
-    - name: Run Flake8
-      run: | 
-        flake8
-    - name: Run Coverage
+    - name: Run flake8
       run: |
-        coverage run manage.py test
-        coverage report
+        flake8 . --max-line-length=88 --ignore=E203,W503
+    - name: Run tests with coverage
+      run: |
+        coverage run -m pytest
+        coverage report -m
+      
+   
 
 
 
 
+
+       
