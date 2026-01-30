@@ -38,7 +38,7 @@ jobs:
         coverage run -m pytest
         coverage report -m
 email:
-    needs: build
+    needs: buildxc created 
     if: github.event_name == 'schedule'   # <-- المهم هنا
     runs-on: ubuntu-latest
     steps:
