@@ -29,11 +29,11 @@ jobs:
         echo "hello" 
     - name: Run Tests
       run: |
-        pytest
+        python manage.py test
     - name: Run tests with coverage
       run: |
-        coverage run -m pytest
-        coverage report -m
+        coverage 
+        coverage report 
     
 
 
