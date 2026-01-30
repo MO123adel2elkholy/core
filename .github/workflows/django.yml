@@ -29,7 +29,7 @@ jobs:
         echo "hello" 
     - name: Run Tests
       run: |
-        python manage.py test
+        pytest
     - name: Run tests with coverage
       run: |
         coverage run -m pytest
