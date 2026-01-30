@@ -1,4 +1,4 @@
-name: Django CI with Scheduled Email Report
+name: Django CI
 
 on:
   push:
