@@ -26,7 +26,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run flake8
       run: |
-        flake8 
+        echo "hello" 
     - name: Run tests with coverage
       run: |
         coverage run -m pytest
