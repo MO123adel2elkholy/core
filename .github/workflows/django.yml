@@ -27,13 +27,14 @@ jobs:
     - name: Run flake8
       run: |
         echo "hello" 
+    - name: Run Tests
+      run: |
+        python manage.py test
     - name: Run tests with coverage
       run: |
         coverage run -m pytest
         coverage report -m
-    - name: Run Tests
-      run: |
-        python manage.py test
+    
 
 
 
