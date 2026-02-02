@@ -5,8 +5,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  schedule:
-    - cron: "1 * * * *"   # كل يوم 6 صباحًا بتوقيت مصر (UTC+2)
+       # كل يوم 6 صباحًا بتوقيت مصر (UTC+2)
 
 jobs:
   build:
